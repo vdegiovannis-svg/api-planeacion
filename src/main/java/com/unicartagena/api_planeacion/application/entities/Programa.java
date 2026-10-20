@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import java.util.List;
 
 @Data
 @Builder
@@ -27,4 +28,7 @@ public class Programa {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "facultad_id", nullable = false)
     private Facultad facultad;
+
+    @OneToMany(mappedBy = "programa", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Semestre> semestres;
 }

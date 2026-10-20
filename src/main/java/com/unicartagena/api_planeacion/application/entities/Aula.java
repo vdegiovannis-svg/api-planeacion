@@ -25,13 +25,42 @@ public class Aula {
     @Column(nullable = false, length = 60)
     private String nombre;
 
-    @Column(nullable = false, length = 100)
-    private String ubicacion;
+    public enum UbicacionAula {
+        Piso_1("Aulas 101-104"),
+        Piso_2("Aulas 201-204"),
+        Piso_3("Aulas 301-304, 308-309"),
+        Piso_Informatica("Sala 1, Sala 2, Sala 3"),
+        Piso_4("Aulas 401-405"),
+        Piso_5("Aulas 501-503"),
+        Piso_Biblioteca("Sala IDEAS");
+
+        private final String descripcion;
+
+        UbicacionAula(String descripcion) {
+            this.descripcion = descripcion;
+        }
+
+        public String getDescripcion() {
+            return descripcion;
+        }
+    }
+
+    public enum TipoAula {
+        Estandar,
+        Sala_Informatica,
+        Aula_Hibrida,
+        Aula_Idea
+    }
+
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private TipoAula tipo;
+
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private UbicacionAula ubicacion;
 
     @Column(nullable = false)
     private Integer capacidad;
-
-    @Column(length = 255)
-    private String descripcion;
 
 }

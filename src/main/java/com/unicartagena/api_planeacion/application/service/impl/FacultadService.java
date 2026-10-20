@@ -55,7 +55,6 @@ public class FacultadService implements IFacultadService {
 
         facultad.setCodigo(request.getCodigo());
         facultad.setNombre(request.getNombre());
-        facultad.setDescripcion(request.getDescripcion());
 
         return modelMapper.map(facultadRepository.save(facultad), FacultadDTO.class);
     }

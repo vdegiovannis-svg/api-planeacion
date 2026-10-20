@@ -61,9 +61,9 @@ public class AulaService implements IAulaService {
 
         aulaExistente.setCodigo(request.getCodigo());
         aulaExistente.setNombre(request.getNombre());
+        aulaExistente.setTipo(request.getTipo());
         aulaExistente.setUbicacion(request.getUbicacion());
         aulaExistente.setCapacidad(request.getCapacidad());
-        aulaExistente.setDescripcion(request.getDescripcion());
 
         Aula aulaActualizada = aulaRepository.save(aulaExistente);
 

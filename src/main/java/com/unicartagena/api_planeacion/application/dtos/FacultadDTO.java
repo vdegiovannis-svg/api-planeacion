@@ -11,5 +11,4 @@ public class FacultadDTO {
     private Long id;
     private String codigo;
     private String nombre;
-    private String descripcion;
 }

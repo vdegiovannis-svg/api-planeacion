@@ -1,5 +1,6 @@
 package com.unicartagena.api_planeacion.application.request;
 
+import com.unicartagena.api_planeacion.application.entities.Aula;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -19,14 +20,13 @@ public class CrearAulaRequest {
     @Size(max = 60, message = "El nombre no debe superar 60 caracteres")
     private String nombre;
 
-    @NotBlank(message = "La ubicación es obligatoria")
-    @Size(max = 100, message = "La ubicación no debe superar 100 caracteres")
-    private String ubicacion;
+    @NotNull(message = "La ubicación es obligatoria")
+    private Aula.UbicacionAula ubicacion;
 
     @NotNull(message = "La capacidad es obligatoria")
     @Min(value = 1, message = "La capacidad mínima debe ser 1")
     private Integer capacidad;
 
-    @Size(max = 255, message = "La descripción no debe superar 255 caracteres")
-    private String descripcion;
+    @NotNull(message = "El tipo de aula es obligatorio")
+    private Aula.TipoAula tipo;
 }

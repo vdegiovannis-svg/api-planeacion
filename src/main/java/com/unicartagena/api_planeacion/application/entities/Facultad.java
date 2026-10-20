@@ -26,9 +26,6 @@ public class Facultad {
     @Column(nullable = false, length = 100)
     private String nombre;
 
-    @Column(length = 255)
-    private String descripcion;
-
     @OneToMany(mappedBy = "facultad", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Programa> programas;
 }
